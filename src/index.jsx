@@ -1,9 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
 import "./styles.css";
-
-const App = (props) => {
-  return <h1>Hello World</h1>;
-};
+import {App} from "./components/App"
 
 ReactDom.render(<App />, document.querySelector("#root"));
