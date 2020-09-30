@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-//import stockData as '../stock-data.js';
 import Nav from '../Nav/Nav';
 import Home from '../Home/Home';
 import Dashboard from '../Dashboard/Dashboard';
@@ -10,15 +9,11 @@ import About from '../About/About';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 export const App = (props) => {
-	//console.log("App stockData - ", stocks);
-
 	const [selectedStock, setSelectedStock] = useState({});
 
 	const handleSelectedStockClick = (stock) => {
 		setSelectedStock(stock);
 	};
-
-	const handleMostActiveStockClick = () => {};
 
 	return (
 		<Router>
