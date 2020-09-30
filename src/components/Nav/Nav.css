@@ -1,0 +1,17 @@
+nav {
+	background: rgb(7, 131, 114);
+	color: white;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 0 20px;
+}
+
+nav h1 {
+	color: white;
+	text-decoration: none;
+	padding: 0 20px;
+}
+nav h1:hover {
+	text-decoration: underline;
+}
