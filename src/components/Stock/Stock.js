@@ -4,19 +4,19 @@ const Stock = (props) => {
 	React.useEffect(() => {
 		const symbol =
 			props.match.params.symbol === null ? 'AAPL' : props.match.params.symbol;
-		console.log(' Stock symbol: ', symbol);
+		//console.log(' Stock symbol: ', symbol);
 		const url = `https://financialmodelingprep.com/api/v3/profile/${symbol}?apikey=0b72bf5737a447cd78dfcc5dde40986a`;
 		const makeApiCall = async () => {
 			const res = await fetch(url);
 			const selectedStock = await res.json();
-			console.log(' Received Stock details: ', selectedStock[0]);
+			//console.log(' Received Stock details: ', selectedStock[0]);
 			props.handleSelectedStockClick(selectedStock[0]);
 		};
 
 		makeApiCall();
 	}, []);
 
-	console.log('Stock SelectedStock: ', props.selectedStock);
+	//console.log('Stock SelectedStock: ', props.selectedStock);
 
 	// Sample Data
 	// [
@@ -57,7 +57,7 @@ const Stock = (props) => {
 	return (
 		<div>
 			<h1>
-				<a href={stock.website} target="_blank">
+				<a href={stock.website} target='_blank'>
 					{stock.companyName} ({stock.symbol})
 				</a>
 			</h1>

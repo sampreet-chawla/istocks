@@ -6,7 +6,12 @@ import Dashboard from '../Dashboard/Dashboard';
 import Stock from '../Stock/Stock';
 import About from '../About/About';
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	Route,
+	Switch,
+	Redirect,
+} from 'react-router-dom';
 
 export const App = (props) => {
 	const [selectedStock, setSelectedStock] = useState({});
@@ -23,19 +28,21 @@ export const App = (props) => {
 				<Route path='/stocks' component={Dashboard} />
 				<Route
 					path='/stocks'
-					render={(routerprops) => <Dashboard {...routerprops} h />}
+					render={(routerProps) => <Dashboard {...routerProps} />}
 				/>
 				<Route
 					path='/stock/:symbol'
-					render={(routerprops) => (
+					render={(routerProps) => (
 						<Stock
-							{...routerprops}
+							// {...routerProps} // Can get the whole object if we need history, location, etc.
+							match={routerProps.match} // For passing only specific data
 							handleSelectedStockClick={handleSelectedStockClick}
 							selectedStock={selectedStock}
 						/>
 					)}
 				/>
 				<Route path='/about' component={About} />
+				<Redirect to='/stocks' />
 			</Switch>
 		</Router>
 	);
